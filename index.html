@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Rock, Paper, Scissors</title>
+		<script async>
+			function getRandomInt(min, max) {
+				min = Math.ceil(min);
+				max = Math.floor(max);
+				return Math.floor(Math.random * (max - min + 1)) + min;
+			}
+			function computerPlay() {
+				let computerChoice = getRandomInt(0, 2);
+				if(computerChoice == 0)
+					return "rock";
+				else if(computerChoice == 1)
+					return "paper";
+				return "scissors";
+			}
+			function playRound(playerSelection, computerSelection) {
+				playerSelection = toLowerCase(playerSelection);
+				computerSelection = toLowerCase(computerSelection);
+				if(playerSelection == computerSelection)
+					//Tie Condition
+				else if(playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "rock") 
+					return true;
+				else
+					return false;
+			}
+			function playerPlay() {
+				let playerSelection;
+				do {
+					playerSelection = prompt("Whatchu gonna play? (Rock, Paper, or Scissors)");									} while(playerSelection.toLowerCase() != "rock" || playerSelection.toLowerCase() != "paper" || playerSelection.toLowerCase() != "scissors");
+			}
+			function game() {
+				let score = [0, 0];
+				while(score[0] < 5 && score[1] < 5)
+				{	
+					
+						
+				}	
+				
+	</head>
+	<body>
+	</body>
+</html>
