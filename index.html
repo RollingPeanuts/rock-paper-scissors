@@ -8,29 +8,43 @@
 				let computerChoice = ["rock", "paper", "scissors"];
 				return computerChoice[Math.floor(Math.random()*3)];
 			}
-			function playRound(playerSelection, computerSelection) {
-				playerSelection = toLowerCase(playerSelection);
-				computerSelection = toLowerCase(computerSelection);
-				if(playerSelection == computerSelection)
-					//Tie Condition
-				else if(playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "rock") 
-					return true;
-				else
-					return false;
-			}
 			function playerPlay() {
 				let playerSelection;
 				do {
 					playerSelection = prompt("Whatchu gonna play? (Rock, Paper, or Scissors)");									} while(playerSelection.toLowerCase() != "rock" || playerSelection.toLowerCase() != "paper" || playerSelection.toLowerCase() != "scissors");
 			}
+			function capitalize(word) {
+				return word[0].toUpperCase() + word.substr(1);
+			}
+			function playRound(playerSelection, computerSelection) {
+				playerSelection = capitalize(toLowerCase(playerSelection));
+				if(playerSelection == computerSelection)
+				{
+					console.log("Tie!");
+					return playRound(playerPlay(), computerPlay());
+				}
+				else if(playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "rock") 
+				{
+					console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+					return true;
+				}
+				else
+				{
+					console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+					return false;
+				}
+			}
+			
 			function game() {
 				let score = [0, 0];
 				while(score[0] < 5 && score[1] < 5)
 				{	
-					
-						
+					playRound(playerPlay(), computerPlay()) ? score[0]++ : score[1]++; 
+					console.log(`Player: ${score[0]}\tComputer: ${score[1]}`);	
 				}	
+
 			}
+		</script>
 				
 	</head>
 	<body>
