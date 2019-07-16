@@ -4,18 +4,9 @@
 		<meta charset="utf-8">
 		<title>Rock, Paper, Scissors</title>
 		<script async>
-			function getRandomInt(min, max) {
-				min = Math.ceil(min);
-				max = Math.floor(max);
-				return Math.floor(Math.random * (max - min + 1)) + min;
-			}
 			function computerPlay() {
-				let computerChoice = getRandomInt(0, 2);
-				if(computerChoice == 0)
-					return "rock";
-				else if(computerChoice == 1)
-					return "paper";
-				return "scissors";
+				let computerChoice = ["rock", "paper", "scissors"];
+				return computerChoice[Math.floor(Math.random()*3)];
 			}
 			function playRound(playerSelection, computerSelection) {
 				playerSelection = toLowerCase(playerSelection);
@@ -39,6 +30,7 @@
 					
 						
 				}	
+			}
 				
 	</head>
 	<body>
